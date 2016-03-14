@@ -2,9 +2,8 @@ FROM debian:latest
 MAINTAINER Fernando Costantini <fhcostantini@gmail.com>
 
 
-RUN apt-get update && apt-get install git --force-yes -y 
-RUN apt-get install python2.7 --force-yes -y 
-RUN apt-get install curl --force-yes -y 
+RUN apt-get update && apt-get install git python2.7 curl vim wget --force-yes -y 
+
 
 ENV CLOUDSDK_PYTHON python2.7
 RUN curl https://sdk.cloud.google.com | bash
@@ -19,8 +18,9 @@ RUN echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-sel
 RUN DEBIAN_FRONTEND=noninteractive  apt-get install -y --force-yes oracle-java8-installer oracle-java8-set-default 
 RUN rm -rf /var/cache/oracle-jdk8-installer  && apt-get clean  && rm -rf /var/lib/apt/lists/*
 
+
 RUN export DEBIAN_FRONTEND=noninteractive && \
 	sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
 	apt-get update && \
 	apt-get -y upgrade && \
-	apt-get install -y vim wget curl git maven
+	apt-get install -y maven
