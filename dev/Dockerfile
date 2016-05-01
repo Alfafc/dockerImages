@@ -24,3 +24,5 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 	apt-get update && \
 	apt-get -y upgrade && \
 	apt-get install -y maven
+
+RUN echo Y | gcloud components install kubectl
