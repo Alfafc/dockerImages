@@ -19,7 +19,7 @@ RUN DEBIAN_FRONTEND=noninteractive  apt-get install -y --force-yes oracle-java8-
 RUN rm -rf /var/cache/oracle-jdk8-installer  && apt-get clean  && rm -rf /var/lib/apt/lists/*
 
 
-RUN export DEBIAN_FRONTEND=noninteractive && \
+CMD export DEBIAN_FRONTEND=noninteractive && \
 	sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
 	apt-get update && \
 	apt-get -y upgrade && \
