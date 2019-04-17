@@ -6,7 +6,7 @@ RUN apt-get update \
   && ln -s /usr/bin/python3 python \
   && pip3 install --upgrade pip
 
-RUN pip3 install spacy regex pandas nltk pandas-gbq sklearn pybind11 scipy redis nltk unidecode
+RUN pip3 install progressbar spacy regex pandas nltk pandas-gbq sklearn pybind11 scipy redis nltk unidecode
 
 #RUN git clone https://github.com/facebookresearch/fastText.git \
 #	&& cd fastText \
